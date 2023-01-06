@@ -6,6 +6,8 @@ Me neither.
 
 Thanks to Bianca for the idea.
 
+[Try it here!](lorossi.github.io/decimalclock)
+
 ## Credits
 
 This project is distributed under Attribution 4.0 International (CC BY 4.0) license.
