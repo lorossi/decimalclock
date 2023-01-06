@@ -1,9 +1,11 @@
-# Empty HTML5 Project
-I got bored of creating a new document every time.
+# Decimal Clock
 
-Contains all the needed files to create a new HTML5 page.
+Have you ever wondered what time is it in decimal format?
+*NO?*
+Me neither.
 
-Just clone the repo or download the last release.
+Thanks to Bianca for the idea.
 
 ## Credits
+
 This project is distributed under Attribution 4.0 International (CC BY 4.0) license.
