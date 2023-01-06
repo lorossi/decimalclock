@@ -1,3 +1,23 @@
+:root {
+  --dark: #000000;
+  --light: #ffffff;
+}
+
+.light-mode {
+  color: var(--dark);
+  background-color: var(--light);
+}
+
+.dark-mode {
+  color: var(--light);
+  background-color: var(--dark);
+}
+
+.fade {
+  transition: 1s ease-out;
+  transition-property: color, background-color;
+}
+
 @font-face {
   font-family: "RobotoRegular";
   src: url("Roboto-Regular.ttf");
@@ -13,8 +33,22 @@ body * {
 a,
 a.visited,
 a:hover,
-a:active {
+a:active,
+.footer,
+.switch {
   color: rgb(127, 127, 127);
+}
+
+.switch {
+  position: absolute;
+  top: 1vh;
+  width: 100vw;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
 }
 
 .clock {
@@ -40,7 +74,10 @@ a:active {
   width: 98vw;
   display: flex;
   justify-content: space-between;
+}
 
+.switch,
+.footer {
   font-size: 1.5em;
 }
 

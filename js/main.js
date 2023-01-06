@@ -3,6 +3,7 @@ const ms_to_dec = (_ms) => {
   const h = Math.floor(dec_seconds / 10000);
   const m = Math.floor((dec_seconds - 10000 * h) / 100);
   const s = Math.floor(dec_seconds - 10000 * h - m * 100);
+
   return {
     h: String(h).padStart(2, "0"),
     m: String(m).padStart(2, "0"),
@@ -11,12 +12,9 @@ const ms_to_dec = (_ms) => {
 };
 
 const set_clock = (decimal_time) => {
-  const h_container = document.querySelector("div.h");
-  const m_container = document.querySelector("div.m");
-  const s_container = document.querySelector("div.s");
-  h_container.innerHTML = decimal_time.h;
-  m_container.innerHTML = decimal_time.m;
-  s_container.innerHTML = decimal_time.s;
+  for (const key in decimal_time) {
+    document.querySelector(`.${key}`).innerHTML = decimal_time[key];
+  }
 };
 
 const get_ms = () => {
@@ -31,4 +29,24 @@ const routine = () => {
   set_clock(decimal_time);
 };
 
-document.addEventListener("DOMContentLoaded", () => setInterval(routine, 10));
+const switch_colors = () => {
+  const clock = document.querySelector(".clock");
+  const button = document.querySelector(".switch");
+  clock.classList.add("fade");
+
+  if (clock.classList.contains("dark-mode")) {
+    clock.classList.remove("dark-mode");
+    clock.classList.add("light-mode");
+    button.innerHTML = "DARK MODE";
+  } else {
+    clock.classList.remove("light-mode");
+    clock.classList.add("dark-mode");
+    button.innerHTML = "LIGHT MODE";
+  }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const button = document.querySelector(".switch");
+  button.addEventListener("click", switch_colors);
+  setInterval(routine, 1);
+});
