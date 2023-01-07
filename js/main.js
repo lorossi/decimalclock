@@ -48,5 +48,5 @@ const switch_colors = () => {
 document.addEventListener("DOMContentLoaded", () => {
   const button = document.querySelector(".switch");
   button.addEventListener("click", switch_colors);
-  setInterval(routine, 1);
+  setInterval(routine, 10);
 });

@@ -30,6 +30,11 @@ body * {
   font-family: "RobotoRegular";
 }
 
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
 a,
 a.visited,
 a:hover,
@@ -69,9 +74,9 @@ a:active,
 
 .footer {
   position: absolute;
-  bottom: 1vh;
-  left: 1vw;
-  width: 98vw;
+  bottom: 0.5em;
+  left: 0.5em;
+  right: 0.5em;
   display: flex;
   justify-content: space-between;
 }
@@ -86,7 +91,7 @@ a:active,
     font-size: 10em;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599px) {
   .clock {
     font-size: 5em;
   }
