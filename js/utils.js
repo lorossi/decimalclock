@@ -30,31 +30,29 @@ const decimal_seconds_to_time = (_s) => {
   };
 };
 
-const switch_colors = (options) => {
-  const _switch_element = (selector) => {
-    element = document.querySelectorAll(selector);
-    for (const e of element) {
-      e.classList.add("fade");
+const _switch_element = (selector) => {
+  element = document.querySelectorAll(selector);
+  for (const e of element) {
+    e.classList.add("fade");
 
-      if (e.classList.contains("dark-mode")) {
-        e.classList.remove("dark-mode");
-        e.classList.add("light-mode");
-      } else {
-        e.classList.remove("light-mode");
-        e.classList.add("dark-mode");
-      }
+    if (e.classList.contains("dark-mode")) {
+      e.classList.remove("dark-mode");
+      e.classList.add("light-mode");
+    } else {
+      e.classList.remove("light-mode");
+      e.classList.add("dark-mode");
     }
-  };
+  }
+};
 
-  const _switch_button_text = (selector) => {
-    const element = document.querySelector(selector);
+const _switch_button_text = (selector) => {
+  const element = document.querySelector(selector);
 
-    if (element.classList.contains("dark-mode"))
-      element.innerHTML = "light mode";
-    else element.innerHTML = "dark mode";
-  };
+  if (element.classList.contains("dark-mode")) element.innerHTML = "light mode";
+  else element.innerHTML = "dark mode";
+};
 
-  _switch_element(options.button);
+const switch_colors = (options) => {
   for (const selector of options.selectors) {
     _switch_element(selector);
   }

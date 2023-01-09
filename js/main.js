@@ -13,7 +13,7 @@ const routine = () => {
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".switch").addEventListener("click", () =>
     switch_colors({
-      selectors: [".clock", ".to-conversion"],
+      selectors: [".clock", ".buttons-container button"],
       button: ".switch",
     })
   );

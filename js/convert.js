@@ -66,7 +66,11 @@ const fill_input = (e) => {
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".switch").addEventListener("click", () =>
     switch_colors({
-      selectors: [".inputs-container input", ".to-home", ".conversions"],
+      selectors: [
+        ".inputs-container input",
+        ".buttons-container button",
+        ".conversions",
+      ],
       button: ".switch",
     })
   );
