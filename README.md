@@ -6,7 +6,7 @@ Me neither.
 
 Thanks to Bianca for the idea.
 
-[Try it here!](lorossi.github.io/decimalclock)
+[Try it here!](https://lorossi.github.io/decimalclock)
 
 ## Unit conversions
 
