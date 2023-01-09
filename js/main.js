@@ -11,12 +11,14 @@ const routine = () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  const button = document.querySelector(".switch");
-  button.addEventListener("click", () =>
+  document.querySelector(".switch").addEventListener("click", () =>
     switch_colors({
-      selectors: [".clock"],
-      button_selector: ".switch",
+      selectors: [".clock", ".to-conversion"],
+      button: ".switch",
     })
   );
+  document.querySelector(".to-conversion").addEventListener("click", () => {
+    window.location.href = "convert.html";
+  });
   setInterval(routine, 10);
 });

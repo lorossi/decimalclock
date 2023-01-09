@@ -31,31 +31,32 @@ const decimal_seconds_to_time = (_s) => {
 };
 
 const switch_colors = (options) => {
-  const button = document.querySelector(options.button_selector);
-  let to_dark = false;
-
-  for (const selector of options.selectors) {
-    const element = document.querySelectorAll(selector);
-
+  const _switch_element = (selector) => {
+    element = document.querySelectorAll(selector);
     for (const e of element) {
       e.classList.add("fade");
 
       if (e.classList.contains("dark-mode")) {
         e.classList.remove("dark-mode");
         e.classList.add("light-mode");
-        to_dark = false;
       } else {
         e.classList.remove("light-mode");
         e.classList.add("dark-mode");
-        to_dark = true;
       }
     }
-  }
+  };
 
-  if (to_dark) {
-    button.innerHTML = "Light Mode";
+  const _switch_button_text = (selector) => {
+    const element = document.querySelector(selector);
+
+    if (element.classList.contains("dark-mode"))
+      element.innerHTML = "light mode";
+    else element.innerHTML = "dark mode";
+  };
+
+  _switch_element(options.button);
+  for (const selector of options.selectors) {
+    _switch_element(selector);
   }
-  if (!to_dark) {
-    button.innerHTML = "Dark Mode";
-  }
+  _switch_button_text(options.button);
 };

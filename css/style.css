@@ -4,17 +4,17 @@
 }
 
 .light-mode {
-  color: var(--dark);
-  background-color: var(--light);
+  color: var(--dark) !important;
+  background-color: var(--light) !important;
 }
 
 .dark-mode {
-  color: var(--light);
-  background-color: var(--dark);
+  color: var(--light) !important;
+  background-color: var(--dark) !important;
 }
 
 .fade {
-  transition: 1s ease-out;
+  transition: 0.75s ease-out;
   transition-property: color, background-color;
 }
 
@@ -45,16 +45,28 @@ a:active,
   color: rgb(127, 127, 127);
 }
 
-.switch {
+.buttons-container {
   position: absolute;
   top: 1vh;
-  width: 100vw;
+  right: 0;
   left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   user-select: none;
   cursor: pointer;
+}
+
+.buttons-container button {
+  border: 1px solid rgb(127, 127, 127);
+  border-radius: 0.5em;
+  width: auto;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .clock {
@@ -134,7 +146,7 @@ a:active,
   justify-content: space-between;
 }
 
-.switch,
+.buttons-container button,
 .footer {
   font-size: 1.5rem;
 }

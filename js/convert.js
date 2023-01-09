@@ -64,13 +64,15 @@ const fill_input = (e) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  const button = document.querySelector(".switch");
-  button.addEventListener("click", () =>
+  document.querySelector(".switch").addEventListener("click", () =>
     switch_colors({
-      selectors: [".conversions", "input"],
-      button_selector: ".switch",
+      selectors: [".inputs-container input", ".to-home", ".conversions"],
+      button: ".switch",
     })
   );
+  document.querySelector(".to-home").addEventListener("click", () => {
+    window.location.replace("/");
+  });
   const inputs = document.querySelectorAll("input");
   for (const input of inputs) {
     input.addEventListener("input", check_input);
