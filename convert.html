@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content="Decimal Clock" />
+    <meta charset="utf-8" />
+    <title>Decimal Clock</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="Lorenzo Rossi" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏰</text></svg>"
+    />
+    <link
+      rel="preload"
+      href="css/Roboto-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="js/utils.js"></script>
+    <script src="js/convert.js"></script>
+  </head>
+
+  <body>
+    <div class="switch">Dark Mode</div>
+
+    <div class="conversions light-mode">
+      <div class="conversions-container">
+        <div class="conversion-title">time</div>
+        <div class="inputs-container">
+          <input
+            type="text"
+            decimal="false"
+            max="24"
+            id="h"
+            placeholder="00"
+          />:
+          <input
+            type="text"
+            decimal="false"
+            max="60"
+            id="m"
+            placeholder="00"
+          />:
+          <input type="text" decimal="false" max="60" id="s" placeholder="00" />
+        </div>
+      </div>
+      <div class="conversions-container">
+        <div class="inputs-container">
+          <input
+            type="text"
+            decimal="true"
+            max="10"
+            id="dh"
+            placeholder="00"
+          />:
+          <input
+            type="text"
+            decimal="true"
+            max="100"
+            id="dm"
+            placeholder="00"
+          />:
+          <input
+            type="text"
+            decimal="true"
+            max="100"
+            id="ds"
+            placeholder="00"
+          />
+        </div>
+        <div class="conversion-title">decimal time</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-content">
+        <a href="https://lorenzoros.si" target="_blank"> Lorenzo Rossi </a>
+      </div>
+      <div class="footer-content">
+        <a href="index.html"> Go to the clock </a>
+      </div>
+      <div class="footer-content">
+        <a href="https://github.com/lorossi/decimalclock" target="_blank">
+          GitHub repo
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
