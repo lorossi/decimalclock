@@ -36,7 +36,7 @@ const check_input = (e) => {
   }
 
   const max_value = e.target.getAttribute("max");
-  if (parseInt(content) >= parseInt(max_value)) {
+  if (parseInt(content) > parseInt(max_value)) {
     e.target.value = content.slice(0, -1);
     return;
   }
