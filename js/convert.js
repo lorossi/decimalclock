@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   );
   document.querySelector(".to-home").addEventListener("click", () => {
-    window.location.replace("/index.html");
+    window.location.href = "/";
   });
   const inputs = document.querySelectorAll("input");
   for (const input of inputs) {
