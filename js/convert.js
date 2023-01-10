@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   );
   document.querySelector(".to-home").addEventListener("click", () => {
-    window.location.href = "/";
+    window.location.href = "/decimalclock";
   });
   const inputs = document.querySelectorAll("input");
   for (const input of inputs) {
