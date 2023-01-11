@@ -63,7 +63,7 @@ The more languages you use, the more it looks like a rainbow!
 - Me: *Mom, can we stop by and create a clean, cohesive, non messy repo?*
 - Mom: *we already have a clean, cohesive, non messy repo at home.*
 
-The clean repo at home:
+The clean, cohesive, non messy repo at home:
 
 ![clean-repo](clean_repo.png)
 
