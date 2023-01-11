@@ -64,23 +64,28 @@ const fill_input = (e) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector(".switch").addEventListener("click", () =>
-    switch_colors({
-      selectors: [
-        ".inputs-container input",
-        ".buttons-container button",
-        ".conversions",
-      ],
-      button: ".switch",
-    })
-  );
+  const switch_colors_options = {
+    selectors: [
+      ".inputs-container input",
+      ".buttons-container button",
+      ".conversions",
+    ],
+    button: ".switch",
+  };
+
+  document
+    .querySelector(".switch")
+    .addEventListener("click", () => switch_colors(switch_colors_options));
+
   document.querySelector(".to-home").addEventListener("click", () => {
     window.location.href = "/decimalclock";
   });
+
   const inputs = document.querySelectorAll("input");
   for (const input of inputs) {
     input.addEventListener("input", check_input);
     input.addEventListener("focusout", fill_input);
     input.value = "00";
   }
+  if (dark_mode_saved()) switch_colors(switch_colors_options);
 });

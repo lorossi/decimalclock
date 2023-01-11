@@ -11,14 +11,19 @@ const routine = () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector(".switch").addEventListener("click", () =>
-    switch_colors({
-      selectors: [".clock", ".buttons-container button"],
-      button: ".switch",
-    })
-  );
+  const switch_colors_options = {
+    selectors: [".clock", ".buttons-container button"],
+    button: ".switch",
+  };
+
+  document
+    .querySelector(".switch")
+    .addEventListener("click", () => switch_colors(switch_colors_options));
+
   document.querySelector(".to-conversion").addEventListener("click", () => {
     window.location.href = "convert.html";
   });
+
   setInterval(routine, 10);
+  if (dark_mode_saved()) switch_colors(switch_colors_options);
 });
