@@ -62,20 +62,14 @@ for x in range(10):
         decimal_time.append(f"{x:02}:{y:02}:00")
         inverse_time.append(dec_to_time(f"{x:02}:{y:02}:00"))
 
-# table, already formatted
-print("|time|decimal time|<br><br><br>|decimal time|time|")
-print("|:-:|:-:|:-:|:-:|:-:|")
+# tables, already formatted
+print("|time|decimal time|\n|:-:|:-:|")
+for i in range(len(time)):
+    print(f"|{time[i]}|{inverse_decimal_time[i]}|")
 
-# loop through each list and print the corresponding values
-for i in range(max(len(time), len(decimal_time))):
-    # check if there are still items in the list;
-    # otherwise print empty cells
-    if i < len(time):
-        print(f"|{time[i]}|{inverse_decimal_time[i]}|", end="")
-    else:
-        print("| | |", end="")
+print()
 
-    if i < len(decimal_time):
-        print(f"|{decimal_time[i]}|{inverse_time[i]}|")
-    else:
-        print("| | |")
+print("|decimal time|time|\n|:-:|:-:|")
+for i in range(len(decimal_time)):
+    print(f"|{decimal_time[i]}|{inverse_time[i]}|")
+print()
