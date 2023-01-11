@@ -11,12 +11,6 @@ const seconds_to_decimal_time = (_s) => {
   };
 };
 
-const get_current_seconds = () => {
-  const d = new Date();
-  const e = new Date(d);
-  return (e - d.setHours(0, 0, 0, 0)) / 1000;
-};
-
 const decimal_seconds_to_time = (_s) => {
   const seconds = Math.floor((_s / 100000) * 86400);
   const h = Math.floor(seconds / 3600);
@@ -28,6 +22,12 @@ const decimal_seconds_to_time = (_s) => {
     m: String(m).padStart(2, "0"),
     s: String(s).padStart(2, "0"),
   };
+};
+
+const get_seconds_since_midnight = () => {
+  const d = new Date();
+  const e = new Date(d);
+  return (e - d.setHours(0, 0, 0, 0)) / 1000;
 };
 
 const _switch_element = (selector, to_add, to_remove) => {
@@ -46,15 +46,6 @@ const _switch_button_text = (selector, class_name) => {
   element.innerHTML = str;
 };
 
-const dark_mode_saved = () => {
-  return window.localStorage.getItem("dark-mode") == "true";
-};
-
-const is_dark_mode = (selector) => {
-  const element = document.querySelector(selector);
-  return element.classList.contains("dark-mode");
-};
-
 const _switch_storage_mode = () => {
   if (window.localStorage.getItem("dark-mode") == "false")
     window.localStorage.setItem("dark-mode", "true");
@@ -66,15 +57,64 @@ const _set_storage_mode_dark = (mode) => {
   window.localStorage.setItem("dark-mode", mode);
 };
 
+const to_int = (str) => {
+  if (str == "") return 0;
+  return parseInt(str);
+};
+const dark_mode_saved = () => {
+  return window.localStorage.getItem("dark-mode") == "true";
+};
+
+const is_dark = (selector) => {
+  const element = document.querySelector(selector);
+  return element.classList.contains("dark-mode");
+};
+
 const switch_colors = (options) => {
-  const to_add = is_dark_mode(options.button) ? "light-mode" : "dark-mode";
-  const to_remove = is_dark_mode(options.button) ? "dark-mode" : "light-mode";
+  const to_add = is_dark(options.button) ? "light-mode" : "dark-mode";
+  const to_remove = is_dark(options.button) ? "dark-mode" : "light-mode";
 
   for (const selector of options.selectors) {
     _switch_element(selector, to_add, to_remove);
   }
   _switch_button_text(options.button, to_remove);
 
-  const storage_mode = is_dark_mode(options.button);
-  _set_storage_mode_dark(storage_mode);
+  const store_mode = is_dark(options.button);
+  _set_storage_mode_dark(store_mode);
+};
+
+const validate_input = (e) => {
+  const content = e.target.value;
+
+  if (/[^0-9]/g.test(content)) {
+    e.target.value = content.slice(0, -1);
+    return;
+  }
+
+  const max_value = e.target.getAttribute("max");
+  if (parseInt(content) > parseInt(max_value)) {
+    e.target.value = content.slice(0, -1);
+    return;
+  }
+  if (content.length > max_value.length) {
+    e.target.value = content.slice(1);
+  }
+
+  const decimal = e.target.getAttribute("decimal") == "true";
+
+  if (decimal) fill_time();
+  else fill_decimal();
+};
+
+const fill_input = (e) => {
+  const content = e.target.value;
+  if (content == "") {
+    e.target.value = "00";
+    return;
+  }
+
+  if (content.length == 1) {
+    e.target.value = "0" + content;
+    return;
+  }
 };

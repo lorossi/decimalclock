@@ -5,7 +5,7 @@ const set_clock = (decimal_time) => {
 };
 
 const routine = () => {
-  const ms_since_midnight = get_current_seconds();
+  const ms_since_midnight = get_seconds_since_midnight();
   const decimal_time = seconds_to_decimal_time(ms_since_midnight);
   set_clock(decimal_time);
 };
