@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const inputs = document.querySelectorAll("input");
   for (const input of inputs) {
-    input.addEventListener("input", check_input);
+    input.addEventListener("input", validate_input);
     input.addEventListener("focusout", fill_input);
     input.value = "00";
   }
