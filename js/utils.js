@@ -84,12 +84,12 @@ const switch_colors = (options) => {
 };
 
 const validate_input = (e) => {
-  const content = e.target.value;
-
-  if (/[^0-9]/g.test(content)) {
-    e.target.value = content.slice(0, -1);
+  if (/[^0-9]/g.test(e.data)) {
+    e.target.value = e.target.value.replace(/[^0-9]/g, "");
     return;
   }
+
+  const content = e.target.value;
 
   const max_value = e.target.getAttribute("max");
   if (parseInt(content) > parseInt(max_value)) {
@@ -108,13 +108,17 @@ const validate_input = (e) => {
 
 const fill_input = (e) => {
   const content = e.target.value;
-  if (content == "") {
-    e.target.value = "00";
-    return;
-  }
 
-  if (content.length == 1) {
-    e.target.value = "0" + content;
-    return;
+  switch (content.length) {
+    case 0:
+      e.target.value = "00";
+      break;
+
+    case 1:
+      e.target.value = "0" + content;
+      break;
+
+    default:
+      e.target.value = content.slice(0, 2);
   }
 };
